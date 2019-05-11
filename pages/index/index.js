@@ -7,57 +7,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    message: "Hello World, Hello Django",
-    array: [
-      {
-        message: "Hello World",
-      },
-      {
-        message: "Hello Django",
-      }
-    ]
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
-  testNetwork: function(event){
-    var data = 'undefined'
-    wx.request({
-      url: 'http://www.imooc.com',
-      method: 'GET',
-      header: {},
-      success: function(res){
-        console.log('in success')
-        data = res.data
-      },
-      fail: function(res){
-        console.log('request failed.')
-      }
-    })
-    console.log('data: ', data)
-  },
-
-  testStorage: function(){
-    wx.setStorage({
-      key: 'test',
-      data: 'data',
-    })
-    wx.getStorage({
-      key: 'test',
-      success: function(res) {
-        var data = res.data
-        console.log('data from storage 1: ', data)
-      },
-    })
-    var data = wx.getStorageSync('test')
-
-    console.log('data from storage 2: ', data)
-
-  },
-  
-  tapName: function(event){
-    console.log(' in tabName function')
-  },
-
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
